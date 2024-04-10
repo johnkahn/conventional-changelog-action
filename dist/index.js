@@ -23719,7 +23719,8 @@ const getChangelogStream = async(tagPrefix, preset, version, releaseCount, confi
     currentTag: `${tagPrefix}${version}`
   },
   {
-    path: gitPath === '' || gitPath === null ? undefined : gitPath
+    path: gitPath === '' || gitPath === null ? undefined : gitPath,
+    merges: null
   },
   config && config.parserOpts,
   config && config.writerOpts
@@ -34886,7 +34887,8 @@ async function run() {
       tagPrefix,
       config,
       skipUnstable: !prerelease,
-      path: gitPath
+      path: gitPath,
+      gitRawCommitsOpts: { merges: null }
     })
 
     core.info(`Recommended release type: ${recommendation.releaseType}`)
