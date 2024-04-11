@@ -34840,6 +34840,8 @@ async function run() {
       gitCommitMessage += ' [skip ci]'
     }
 
+    core.info(`Using version of action customized by John Kahn`);
+
     core.info(`Using "${preset}" preset`)
     core.info(`Using "${gitCommitMessage}" as commit message`)
     core.info(`Using "${gitUserName}" as git user.name`)
