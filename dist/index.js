@@ -5743,7 +5743,7 @@ async function createPreset (config) {
   return {
     gitRawCommitsOpts: {
       ignore: config?.ignoreCommits,
-      // noMerges: null
+      noMerges: null
     },
     parserOpts,
     writerOpts,
@@ -6461,7 +6461,7 @@ async function mergeConfig (options, context, gitRawCommitsOpts, parserOpts, wri
   gitRawCommitsOpts = {
     format: '%B%n-hash-%n%H%n-gitTags-%n%d%n-committerDate-%n%ci',
     from: fromTag,
-    // merges: false,
+    merges: false,
     debug: options.debug,
     ...config.gitRawCommitsOpts,
     ...gitRawCommitsOpts
@@ -23720,7 +23720,7 @@ const getChangelogStream = async(tagPrefix, preset, version, releaseCount, confi
   },
   {
     path: gitPath === '' || gitPath === null ? undefined : gitPath,
-    // merges: null
+    merges: true
   },
   config && config.parserOpts,
   config && config.writerOpts
@@ -34888,7 +34888,7 @@ async function run() {
       config,
       skipUnstable: !prerelease,
       path: gitPath,
-      // gitRawCommitsOpts: { merges: null }
+      gitRawCommitsOpts: { merges: true }
     })
 
     core.info(`Recommended release type: ${recommendation.releaseType}`)
